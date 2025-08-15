@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:todo_app/app2.dart';
 import 'package:todo_app/firebase_db.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app/models/student.dart';
+import 'package:todo_app/app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,32 +26,6 @@ class MyApp extends StatelessWidget {
     var instance = FirebaseFirestore.instance;
     print('Firestore instance: ${instance}');
 
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Firestore Example')),
-        body: FutureBuilder(
-          future: FirebaseDb.getStudent(),
-          builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
-            }
-            if (snapshot.hasError) {
-              return Center(child: Text('Error: ${snapshot.error}'));
-            }
-            return ListView.builder(
-              itemCount: snapshot.data?.length,
-              itemBuilder: (context, index) {
-                Student student = snapshot.data[index].data();
-
-                return ListTile(
-                  title: Text(student.name),
-                  subtitle: Text(student.city),
-                );
-              },
-            );
-          },
-        ),
-      ),
-    );
+    return MaterialApp(home: RealtimeHomepage());
   }
 }

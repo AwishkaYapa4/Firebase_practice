@@ -16,4 +16,14 @@ class FirebaseDb {
             .get();
     return student.docs;
   }
+
+  static getStudentStream() {
+    return instance
+        .collection('student')
+        .withConverter(
+          fromFirestore: (snapshot, _) => Student.fromJson(snapshot.data()!),
+          toFirestore: (student, _) => student.toJson(),
+        )
+        .snapshots();
+  }
 }
