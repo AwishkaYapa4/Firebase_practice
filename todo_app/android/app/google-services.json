@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "242900292848",
+    "project_id": "firepractice-b578e",
+    "storage_bucket": "firepractice-b578e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242900292848:android:d10937661cefb93268de35",
+        "android_client_info": {
+          "package_name": "com.example.todo_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYXZHQAA11vyg8Z5Rbbl0nm0pDPuPSKXs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
