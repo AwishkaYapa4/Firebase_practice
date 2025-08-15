@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:todo_app/firebase_db.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_app/models/student.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,9 +39,12 @@ class MyApp extends StatelessWidget {
             return ListView.builder(
               itemCount: snapshot.data?.length,
               itemBuilder: (context, index) {
-                var data = snapshot.data[index].data();
+                Student student = snapshot.data[index].data();
 
-                return Text("$data");
+                return ListTile(
+                  title: Text(student.name),
+                  subtitle: Text(student.city),
+                );
               },
             );
           },
